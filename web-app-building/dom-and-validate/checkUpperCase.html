@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reg</title>
+  </head>
+
+  <body>
+    <script>
+      let input = prompt("Enter word");
+      const isFirstLetterUpperCase = (str) => {
+        regexp = /^[A-Z]/;
+        if (regexp.test(str)) {
+          alert("String's first character is uppercase");
+        } else {
+          alert("String's first character is not uppercase");
+        }
+      }
+      isFirstLetterUpperCase(input)
+    </script>
+  </body>
+</html>

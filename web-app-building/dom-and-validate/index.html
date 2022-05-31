@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="menu">
+      <li>About</li>
+      <li>Contact</li>
+      <li>Service</li>
+    </ul>
+    <button id="button" name="button">Save</button>
+
+    <script>
+      // Insert before
+      let menu = document.getElementById("menu");
+      let li = document.createElement("li");
+      li.textContent = "Home";
+
+      menu.insertBefore(li, menu.firstElementChild);
+
+      // setAttribute
+      let button = document.querySelector("#button");
+      button.setAttribute("type", "submit");
+
+      // getAttribute
+      let type = button.getAttribute("type");
+      console.log(type);
+
+      // addEventListener()
+      button.addEventListener("click", (event) => {
+        alert(event.type);
+      });
+    </script>
+  </body>
+</html>
