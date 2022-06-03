@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Validate email</title>
+  <style>
+    input:invalid {
+      border: 2px solid red;
+    }
+
+    input:valid {
+      border: 2px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="form">
+    <label for="email">Email</label>
+    <br />
+    <input type="text" value="" id="email" />
+    <p id="emailError"></p>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const isValidEmail = (email) => {
+      const emailRegex =
+        /^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$/;
+      return emailRegex.test(email);
+    };
+
+    const submitForm = (event) => {
+      console.log("submit form");
+      let emailInput = document.getElementById("email");
+      if (!isValidEmail(emailInput.value)) {
+        let emailError = document.getElementById("emailError");
+        emailError.innerHTML = "Email is invalid";
+        emailError.style.color = "red";
+        emailInput.style.borderColor = "red";
+      }
+      // console.log(emailInput.value);
+      // console.log(isValidEmail(emailInput.value));
+      event.preventDefault();
+    };
+
+    const form = document.getElementById("form");
+    form.addEventListener("submit", submitForm);
+  </script>
+</body>
+
+</html>
