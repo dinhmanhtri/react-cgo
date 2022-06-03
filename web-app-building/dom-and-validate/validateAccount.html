@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Validate username</title>
+  <style>
+    input:invalid {
+      border: 2px solid red;
+    }
+
+    input:valid {
+      border: 2px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="form">
+    <label for="username">Username</label>
+    <br />
+    <input type="text" value="" id="username" />
+    <p id="usernameError"></p>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const isValidUsername = (username) => {
+      const usernameRegex = /^[_a-z0-9]{6,}$/;
+      return usernameRegex.test(username);
+    };
+
+    const submitForm = (event) => {
+      console.log("submit form");
+      let usernameInput = document.getElementById("username");
+      if (!isValidUsername(usernameInput.value)) {
+        let usernameError = document.getElementById("usernameError");
+        usernameError.innerHTML = "Username is invalid";
+        usernameError.style.color = "red";
+        usernameInput.style.borderColor = "red";
+      }
+      // console.log(usernameInput.value);
+      // console.log(isValidUsername(usernameInput.value));
+      event.preventDefault();
+    };
+
+    const form = document.getElementById("form");
+    form.addEventListener("submit", submitForm);
+  </script>
+</body>
+
+</html>
