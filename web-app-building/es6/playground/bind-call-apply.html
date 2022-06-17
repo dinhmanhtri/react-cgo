@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bind-call-apply</title>
+  </head>
+  <body>
+    <script>
+      // Trong Javascript từ khóa this luôn được xác định bởi nơi hàm đang đc gọi, chứ không phải
+      // nơi hàm đang được định nghĩa
+      const person = {
+        name: "Tri",
+        sayHi() {
+          return `hey ${this.name}`;
+        },
+      };
+
+      const peter = { name: "Peter" };
+
+      const sayHi = person.sayHi.bind(peter);
+      console.log(sayHi());
+    </script>
+  </body>
+</html>
